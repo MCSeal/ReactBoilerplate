@@ -1,0 +1,99 @@
+install yarn
+install global babel 
+
+yarn init
+
+yarn add babel-preset-react babel-preset-env
+to link babel to do its thing
+babel indecision/src/app.js --out-file=indecision/public/scripts/app.js --presets=env,react (--watch)
+
+the watch will auto change while it waits for changes
+className not class for jsx, most are the same except for certain ones
+
+
+   <Header title = {title}/> .... then can call this with this.props later
+
+
+
+   
+//example of state and state changing 
+
+class VisibilityToggle extends React.component {
+    constructor(props){
+        super(props);
+        this.handleToggleVisibility = this.handleToggleVisibility.bind(this);
+        this.state = {
+            visibility: false
+        };
+    }
+    handleToggleVisibility(){
+        this.setState ((prevState) => {
+            return {
+                visibility: !prevState.visibility
+            }
+        })
+    }
+    render(){
+        return(
+            <div>
+            <button onClick ={this.handleToggleVisibility}>
+                {this.state.visibility ? 'Hide details' : 'show details'}
+            </button>
+        
+            </div>
+        ) 
+    }
+}
+
+ReactDOM.render(<VisibilityToggle/>, document.getElementById('app'))
+
+
+if you want a child element to call stuff using information in the parent, you should send a function from the 
+parent (example<Action  handlePick = {this.handlePick}/>)to the child and then have the child call it. 
+you have to bind the function in the parent though...  this.handlePick = this.handlePick.bind(this);
+--------
+can get rid of bind.this crap by.... instead of using constructors use class structure and arrow functions... arrow functions use parents of this. 
+i.e. instead of:
+handleAddoptions(e) {...... handleAddOption = (e) => { ...... this fixes the this.bind issue
+
+
+
+
+webpack
+------
+
+webpack allows you to only import one script instead of multiple src files that take a long time to load, webpack also lets you import things similar to node
+grabbing variables from different files
+
+//webpack config needs 2 things
+
+//entry -> output
+const path = require('path');
+
+
+module.exports = {
+    entry: './indecision/src/app.js',
+    output: {
+        path: path.join(__dirname, '/indecision/public'),
+        filename: 'bundle.js'
+    }
+};
+
+
+for import/export you need to use first export the proper function/object you want i.e. (const square = (x) => x * x; export { square };)
+
+then from the file you want to import the function to import {square} from './util.js' ;    (if default you leave off the {} to import but also can change name when import)
+settipng up JSX with babel ... 54.
+and babelrc for stuff
+
+sourcemaps allow for errors 
+
+
+STYLING =============
+for react: 
+
+css-loader and style-loader ... for css
+
+sass-loader for scss and node-sass for scss
+
+normalize.... resets css styles for all browsers to default them kind of.
