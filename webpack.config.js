@@ -36,6 +36,8 @@ module.exports = {
     devServer:{
         compress: true,
         disableHostCheck: true,
-        contentBase: path.join(__dirname, '/public')
+        contentBase: path.join(__dirname, '/public'),
+        //TO SENT HTML FILE TO EACH URL
+        historyApiFallback: true
     }
 };
