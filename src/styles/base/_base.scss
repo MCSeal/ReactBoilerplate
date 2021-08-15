@@ -8,6 +8,51 @@ body {
     font-size: $m-size;
 }
 
+.outer{
+background: hsl(219, 65%, 92%);
+}
+
+
+.inner{
+    display: flex;
+    flex-flow: column;
+    background: white;
+    border: 1px hidden black ;
+    margin-left: 70rem;
+    margin-right: 70rem;
+    
+    height: 100vh;
+}
+
+.header__link{
+    display: flex;
+    flex-flow: column;
+    background-color: white;
+    border: none;
+    color: rgb(52, 95, 138);
+    padding: 14px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 4px 16rem;
+    border-radius: 24px;
+    border: 1px solid  black ;
+    font-weight: 600;
+    
+}
+.header__link:hover{
+
+    background-color: rgb(52, 95, 138);
+    color: white;
+
+}
+
+
+
 .is-active{
     font-weight: bold;
+}
+
+.body__content{
+    text-align: center;
+    
 }

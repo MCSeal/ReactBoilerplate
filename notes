@@ -97,3 +97,143 @@ css-loader and style-loader ... for css
 sass-loader for scss and node-sass for scss
 
 normalize.... resets css styles for all browsers to default them kind of.
+
+react router-----=----------------------=======================
+
+handles routes ... from react-router-document
+
+uses browser router.... switch.. and route 
+
+import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
+
+const AppRouter = () => (
+    <BrowserRouter> 
+       <div className="outer">
+            <div className ="inner">
+                <Header/>
+                    <Switch>
+                    <Route path="/" component={ExpenseDashboardPage} exact={true} />
+                    <Route path="/create" component={AddExpensePage} exact={true} />
+                    <Route path="/edit/:id" component={EditExpensePage} exact={true} />
+                    <Route path="/help" component={HelpPage} exact={true} />
+                    <Route component={NotFound}  />
+                </Switch>
+            </div>
+       </div>
+
+
+    </BrowserRouter>  
+
+);
+
+export default AppRouter;
+
+then you render that router 
+ReactDOM.render(<AppRouter />, document.getElementById('app'));
+
+react router... allows for the actual non-refreshing of pages when you switch...
+this uses javascript to change what gets rendered to the screen avoiding sending html pages
+all client based insetad of router to server back to front 
+
+
+react redux part 1 =========================================================
+
+for more complex apps....  handles multiple state / state container
+the problem with simple non redux apps is that you have to constantly pass down props
+and they have to all be connected to pass down the props/data
+it also allows to re-use functions/components and data stuff
+
+import { something } from 'redux'
+
+const store = sonething((state = { stateoption: 0 }, action) => { })
+
+actions------
+
+you have to detail what you want 
+
+store.dispatch({
+    type: 'INCREMENT'
+})
+
+const store = sonething((state = { stateoption: 0 }, action) => { 
+    if (action.type === 'INCREMENT')
+      return {count: state.count + 1}
+       else return state
+})
+
+more common for this instead of if/else..... its easier for switch in complex things then if/else
+
+const store = sonething((state = { stateoption: 0 }, action) => { 
+    switch (action.type){
+        case 'INCREMENT':
+        return {count: state.count + 1}
+    };
+    case 'DECREMENT':
+    return {
+        count: state.count -1
+    }
+    default: return state;
+})
+
+store.dispatch({type: 'DECREMENT'})
+
+
+-------- redux method for checks for changes 
+
+const poopStop = store.subscribe (() => {
+    console.log(store.getState())
+})
+
+you can put that anywhere and it will be called when store state changes ^^ 
+to stop it you just call it again
+
+poopStop();
+
+can also do pass more then one thing in dispatchj
+
+store.dispatch({
+    type: 'INCREMENT',
+    IncrementBy: 5
+})
+
+
+if increment by ius a number add to it... if not default 1
+
+and in store---
+    switch (action.type){
+        case 'INCREMENT':
+        const IncrementBy: = typeof action.incremebtby === 'number' ? action.incrementBy : 1
+        return {count: state.count + incrementBy}
+    };
+
+
+---- destructuring==============================
+
+const person = {
+    location: {
+        city: 'pp'
+        temp: 92
+    }
+}
+
+const {city, temp} = person.location
+can call city and temp directly by stealing it off (destructuring) person.;
+
+can also do this: {city, temp: temperature} 
+this  changes the name of temp to temperature
+
+can change and make default at same time     { name: publisherName = 'default vALEU'}
+
+can do with arrays: 
+
+const item = {'coffee, 2, 2.5, 2.75}
+
+const [coff, , medprice,] = item;
+
+
+---- reducers are pure functions (have no global scope variables or make those equal to it)
+
+state and count should not be changed directly.... just returned with the mutation
+
+
+can make multiple reducers with combineReducers import from redux
