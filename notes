@@ -237,3 +237,17 @@ state and count should not be changed directly.... just returned with the mutati
 
 
 can make multiple reducers with combineReducers import from redux
+
+high order components------ (HOC)
+
+regular component that renders another component
+you could have 1 higher order component making several regular components
+the goal of this is to reuse code , and render hijacking"", and propmanipulation and abstract states.
+
+----install redux to connect to react
+provides ..... provider function and connect to connect to the redux store
+npm install react-redux@5.0.5
+
+
+TO ACCESS PROPS YOU MUST USE THE CONSTRUCTOR FUNCTION
+connect is to dispatch changes daddy

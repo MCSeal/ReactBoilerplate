@@ -12,13 +12,11 @@ const location = <FontAwesomeIcon icon={faMapMarker} />
 const Header = () => (
     <div className="header">
         <header>
-            <h1 className="header__title">Mathew & Ashley</h1>
-            <h3 className="header__subtitle"> {calender} September 24th 2022 </h3>
-            <h3 className="header__subtitle"> {location}  Pine Lodge </h3>
+            <h1 className="header__title">Expense</h1>
             <NavLink className ="header__link" to="/" activeClassName="is-active" exact={true}>RSVP</NavLink>
-            <NavLink className ="header__link" to="/create" activeClassName="is-active"> Wedding Day Info</NavLink>
-            <NavLink className ="header__link" to="/edit" activeClassName="is-active"> Directions</NavLink>
-            <NavLink className ="header__link" to="/help" activeClassName="is-active"> accommodations</NavLink>
+            <NavLink className ="header__link" to="/create" activeClassName="is-active"> Create exp</NavLink>
+            <NavLink className ="header__link" to="/edit" activeClassName="is-active"> edit expense</NavLink>
+            <NavLink className ="header__link" to="/help" activeClassName="is-active"> help</NavLink>
         </header>
     </div>
 );

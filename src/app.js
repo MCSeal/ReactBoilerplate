@@ -4,19 +4,24 @@ import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
-
 import { addExpense } from './actions/expenses';
 import { setTextFilter } from './actions/filters';
 import getVisibileExpenses from './selectors/expenses';
+
+import { Provider } from 'react-redux';
+
+
 
 
 const store = configureStore();
 
 
-store.dispatch(addExpense({description: 'waterbill'}));
-store.dispatch(addExpense({description: 'gaz bill', amount: '200'}));
+store.dispatch(addExpense({description: 'waterbill', amount: 4500, createdAt:100}));
+store.dispatch(addExpense({description: 'gaz bill', amount: 200, createdAt: 1000}));
+store.dispatch(addExpense({description: 'rent', amount: 1095}));
 
-store.dispatch(setTextFilter('water'));
+
+
 
 const state = store.getState();
 
@@ -28,5 +33,14 @@ console.log(visibleExpenses);
 console.log(store.getState());
 
 
-ReactDOM.render(<AppRouter />, document.getElementById('app'));
+
+const jsx = (
+    <Provider store = {store}>
+        <AppRouter />
+    
+    </Provider>
+);
+
+
+ReactDOM.render(jsx, document.getElementById('app'));
 
