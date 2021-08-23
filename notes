@@ -251,3 +251,58 @@ npm install react-redux@5.0.5
 
 TO ACCESS PROPS YOU MUST USE THE CONSTRUCTOR FUNCTION
 connect is to dispatch changes daddy
+
+
+if you need to keep track of state and pass them down to components.... you need to make a class based component no just stateless function component
+i.e
+class ExpenselistFilters extends React.Component{
+  state = {
+    calenderFocused: null,
+  };
+  render(){
+
+      also means you have to use this.props instead of props for stateleses
+
+
+
+Testing  chapter 12 .... Jest best for react
+
+npm add jest@20.0.4
+
+  "scripts": {
+    "serve": "live-server public/",
+    "build": "webpack",
+    "dev-server": "webpack-dev-server --watch",
+    "test": "jest"}
+
+
+make tests folder.... make files that have .test.js as ending, i.e. add.test.js
+
+npm run test -- --watch with the --watch in the package.json file for auto doing stuff
+example of test stuff: 
+
+const add = (a,b) => a + b;
+
+
+test('test', () => {
+    const result = add(3,4);
+
+   expect(result).toBe(7);
+
+
+typically copy the folder and file names in the tests directory 
+import the file and run an action
+
+
+test ('remove expense ', () => {
+
+    const action = removeExpense({ id: '123abc' });
+    expect(action).toEqual({
+        type: 'REMOVE_EXPENSE',
+        id: '123abc'
+
+    });
+
+});
+
+toEqual is how you compare objects/arrays, tobe wont let the properties compare properly 
