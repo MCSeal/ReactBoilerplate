@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renderer 1`] = `
+<header
+  className="header"
+>
+  <h1
+    className="header__title"
+  >
+    Expense
+  </h1>
+  <NavLink
+    activeClassName="is-active"
+    className="header__link"
+    exact={true}
+    to="/"
+  >
+    RSVP
+  </NavLink>
+  <NavLink
+    activeClassName="is-active"
+    className="header__link"
+    to="/create"
+  >
+     Create exp
+  </NavLink>
+  <NavLink
+    activeClassName="is-active"
+    className="header__link"
+    to="/edit"
+  >
+     edit expense
+  </NavLink>
+  <NavLink
+    activeClassName="is-active"
+    className="header__link"
+    to="/help"
+  >
+     help
+  </NavLink>
+</header>
+`;

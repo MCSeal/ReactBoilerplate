@@ -306,3 +306,55 @@ test ('remove expense ', () => {
 });
 
 toEqual is how you compare objects/arrays, tobe wont let the properties compare properly 
+
+
+TESTING REACT COMPONENTS -------------------------------------
+
+
+for testing components of react they have a thing you can install
+
+
+npm install react-test-renderer@16.0.0
+must be save version of react??
+
+two types of react testing shallow and full
+import ReactShallowRenderer from 'react-test-renderer/shallow';
+
+full does child components.... shallow is just the single one without dependants
+
+test('', () => {
+   const renderer = new ReactShallowRenderer();
+   renderer.render(<Header />);
+   
+   expect(renderer.getRenderOutput()).toMatchSnapshot();
+   
+   console.log(renderer.getRenderOutput());
+});
+
+
+
+
+dont use TO EQUAL anymore for componets, snapshot will keep track of changes 
+
+this created snapshot directory
+
+
+---- - enzyme.... npm install enzyme@3..0.0   enzyme-adapter-react-16@1.0.0 and raf@3.3.2
+
+have a setuptests file for setup ..... just go to 119.... it s dumb
+
+enyzme to json ..... 
+
+import toJSON from 'enzyme-to-json';
+
+test('Header renderer', () => {
+    const wrapper = shallow(<Header />)
+    expect(toJSON(wrapper)).toMatchSnapshot();
+
+
+
+
+__mocks__
+
+you can get over moment issues in testing by making a mock folder 
+

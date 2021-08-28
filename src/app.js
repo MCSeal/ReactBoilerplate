@@ -7,7 +7,7 @@ import './styles/styles.scss';
 import { addExpense } from './actions/expenses';
 import { setTextFilter } from './actions/filters';
 import getVisibileExpenses from './selectors/expenses';
-
+import 'react-dates/lib/css/_datepicker.css';
 import { Provider } from 'react-redux';
 
 
