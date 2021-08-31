@@ -358,3 +358,19 @@ __mocks__
 
 you can get over moment issues in testing by making a mock folder 
 
+
+------- production webpack
+
+change json info 
+    "build:dev": "webpack",
+    "build:prod":"webpack -p",
+
+changed the way webpack exports with a function instead of none
+
+
+
+
+---- heroku
+for heroku must add lines in json config
+install heroku cli 
+

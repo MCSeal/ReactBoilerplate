@@ -6,9 +6,12 @@
   "license": "MIT",
   "scripts": {
     "serve": "live-server public/",
-    "build": "webpack",
-    "dev-server": "webpack-dev-server  --host $IP --port $PORT  --hot --inline",
-    "test": "jest --config=jest.config.json"
+    "build:dev": "webpack",
+    "build:prod": "webpack -p --env production",
+    "dev-server": "webpack-dev-server  --watch",
+    "test": "jest --config=jest.config.json",
+    "start": "node server/server.js",
+    "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -26,12 +29,13 @@
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
     "enzyme-to-json": "^3.0.1",
+    "express": "^4.17.1",
+    "extract-text-webpack-plugin": "^3.0.0",
     "jest": "^20.0.4",
     "live-server": "^1.2.1",
     "moment": "^2.18.1",
     "node-sass": "5.0.0",
     "normalize.css": "^7.0.0",
-    "raf": "^3.3.2",
     "react": "16.0.0",
     "react-addons-shallow-compare": "^15.6.0",
     "react-dates": "^12.7.0",
@@ -47,5 +51,8 @@
     "validator": "8.0.0",
     "webpack": "3.1.0",
     "webpack-dev-server": "2.5.1"
+  },
+  "devDependencies": {
+    "raf": "^3.4.1"
   }
 }
