@@ -13,7 +13,7 @@ const CSSExtract = new ExtractTextPlugin('styles.css');
     return {
         entry: './src/app.js',
         output: {
-            path: path.join(__dirname, '/public'),
+            path: path.join(__dirname, '/public', 'dist'),
             filename: 'bundle.js'
         },
         //points webpack to use babel and avoid nodemodules
@@ -56,7 +56,8 @@ const CSSExtract = new ExtractTextPlugin('styles.css');
             disableHostCheck: true,
             contentBase: path.join(__dirname, '/public'),
             //TO SENT HTML FILE TO EACH URL
-            historyApiFallback: true
+            historyApiFallback: true,
+            publicPath: '/dist/'
         }
     }    
 };
